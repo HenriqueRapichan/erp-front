@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --main-color: #0d6efd;
+    --padding-padrao: 2%;
+}
+
+.container-padrao {
+    margin: 0 auto;
+    padding: var(--padding-padrao);
+}

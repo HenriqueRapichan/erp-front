@@ -1,0 +1,19 @@
+a{
+    text-decoration: none;
+}
+li {
+    width: 100%;
+    list-style-type: none;
+}
+ul{
+    padding-left: 0;
+}
+
+.barra-menu{
+    max-height: 70px;
+   padding: var(--padding-padrao);
+   background-color: var(--main-color);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}

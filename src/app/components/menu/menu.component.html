@@ -1,0 +1,36 @@
+
+<div class="barra-menu">
+    <button class="btn btn-md btn-outline-light mb-2 me-2" (click)="openCustomPanelClass(content)">
+        Menu
+    </button>
+    <button class="btn btn-sm btn-danger mb-2 me-2">
+        Sair
+    </button>
+</div>
+<ng-template #content let-offcanvas>
+    <div class="offcanvas-header">
+        <h4 class="offcanvas-title">Menu</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul>
+            <hr />
+            <li>Home</li>
+            <hr />
+            <li ngbDropdown>
+                <div id="dropdownBasic1" ngbDropdownToggle>Cadastros</div>
+                <ul ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <li ngbDropdownItem>Produto</li>
+                    <li ngbDropdownItem><a href="" routerLink="/home/pessoas" routerLinkActive="selected" ariaCurrentWhenActive="page">Pessoas</a></li>
+                </ul>
+            </li>
+            <hr />
+        </ul>
+    </div>
+    <div class="offcanvas-footer">
+        <div class="text-end" style="padding: 16px;">
+            <button type="button" class="btn btn-outline-danger" (click)="offcanvas.close('Close click')">Close</button>
+        </div>
+    </div>
+</ng-template>
+<router-outlet></router-outlet>

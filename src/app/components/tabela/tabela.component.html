@@ -1,0 +1,62 @@
+<div>
+    <div class="row g-0 grid-opcoes">
+        <div class="col-xl-5 col-md-4 col-sm-12 grid-pesquisa">
+            <input type="text" class="form-control" placeholder="Pesquisar ..." #filter
+                (change)="transform(tableData.data, filter.value)">
+            <i class="bi bi-search"></i>
+        </div>
+        <div class="col-xl-3 col-md-4 col-sm-12 paginacao">
+            <ngb-pagination [collectionSize]="tableData.data.length" [pageSize]="pageSize" [(page)]="page"
+                [boundaryLinks]="true" [maxSize]="5" [rotate]="true" [ellipses]="false" />
+        </div>
+        <div class="col-xl-2 col-md-4 col-sm-12">
+            <!-- <div class="btn-group margin-x">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                  aria-expanded="false" title="Opções">
+                  <i class="bi bi-gear"></i>
+              </button>
+              <ul class="dropdown-menu">
+                  <legend>Opções</legend>
+                  <li>
+                      <div class="dropdown-item header-selection" *ngFor="let header of allHeaders; let i = index;"
+                          [draggable]="header.isSelected" (dragstart)="onDragstart(i)" (dragover)="onDragover(i)"
+                          (dragend)="onDragend()"
+                          [ngClass]="{'dragged': dragTrace.src === i, 'dragged-over': dragTrace.dest === i }">
+                          <span>{{header.key}}</span>
+                          <input type="checkbox" (click)="toogleHeader(i)" [checked]="header.isSelected">
+                      </div>
+                  </li>
+              </ul>
+          </div> -->
+            <div ngbDropdown class="d-inline-block">
+                <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                    <i class="bi bi-gear"></i>
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <div ngbDropdownItem class="ordem-lista" *ngFor="let header of allHeaders; let i = index;"
+                        [draggable]="header.isSelected" (dragstart)="onDragstart(i)" (dragover)="onDragover(i)"
+                        (dragend)="onDragend()"
+                        [ngClass]="{'dragged': dragTrace.src === i, 'dragged-over': dragTrace.dest === i }">
+                        <span>{{header.key}}</span>
+                        <input type="checkbox" (click)="toogleHeader(i)" [checked]="header.isSelected">
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-secondary" title="Filtros"><i class="bi bi-funnel"></i></button>
+        </div>
+    </div>
+    <div class="table-container table table-bordered margin-y">
+        <table class="table table-striped">
+            <thead>
+                <tr class="table-light">
+                    <th class="border" *ngFor="let x of tableData.headers">{{x.key}}</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr *ngFor="let row of tableFilter.data | slice: (page-1) * pageSize : page * pageSize; track row">
+                    <td class="border" *ngFor="let h of tableData.headers">{{row[h.key]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

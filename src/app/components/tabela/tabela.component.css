@@ -1,0 +1,23 @@
+.grid-pesquisa{
+    display: flex;
+    justify-content: end;
+   }
+
+   .grid-pesquisa i{
+    position: absolute;
+    margin: 7px;
+   }
+   .ordem-lista{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+
+   @media only screen and (max-width: 600px) {
+    .paginacao{
+        margin: 1% 0;
+    }
+    .grid-opcoes{
+        text-align: start;
+    }
+  }
